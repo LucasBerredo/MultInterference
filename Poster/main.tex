@@ -53,7 +53,7 @@ Dos espejos de Bragg idénticos enfrentados entre sí forman una cavidad resonan
 \begin{equation}\label{lr}
     \lambda_q=\frac{2n_{cav}L}{q}, \quad q\in\mathbb{N}
 \end{equation}
-Este sistema se usa para analizar espectros con gran precisión o fabricación de láseres de emisión controlada en longitud de onda.
+Aplicado a análisis de espectros con gran precisión o fabricación de láseres de emisión controlada.
 }
 
 
@@ -118,70 +118,65 @@ de donde se calculan los coeficientes de transmisión y reflexión. La reflectan
 
 
 
-% ---- FILA 1: ÁNGULOS ----
-\begin{minipage}[t]{0.22\linewidth}
-    Your descriptive text goes here. This column acts as the legend or introduction for the three images to the right.
+% -------- FILA 1 --------
+\noindent
+\begin{minipage}[c]{0.25\textwidth}
+
+\textbf{Influencia del ángulo de incidencia.}
+Gráficas del Espejo de Bragg para $\theta_i=0^\circ$, $30^\circ$ y $60^\circ$. 
+
+Parámetros:
+
+$n_{inc}=1$, $n_H=2.3$, $n_L=1.45$; $n_{sub}=1.45$ y $m=8$.
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Bragg-angle=0.jpeg}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Bragg-angle=30.jpeg}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Bragg-angle=60.jpeg}
+\begin{minipage}[c]{0.7\textwidth}
+\centering
+\includegraphics[width=0.3\textwidth]{Bragg-angle=0.jpeg}
+\includegraphics[width=0.3\textwidth]{Bragg-angle=30.jpeg}
+\includegraphics[width=0.3\textwidth]{Bragg-angle=60.jpeg}
 \end{minipage}
 
+\vspace{0.5cm}
 
+% -------- FILA 2 --------
+\noindent
+\begin{minipage}[c]{0.25\textwidth}
+\textbf{Variación del número de capas $m$.}
+Comparación para $m=3$, $5$ y $8$. 
 
+Parámetros:
 
-
-% ---- FILA 2: VARIACIÓN DE m ----
-\begin{minipage}[t]{0.22\linewidth}
-    Your descriptive text goes here. This column acts as the legend or introduction for the three images to the right.
+$n_{inc}=1$, $n_H=2.3$, $n_L=1.45=n_{sub}$ y $\theta_i=0^\circ$.
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Bragg-m=1.jpeg}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Bragg-m=2.jpeg}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Bragg-m=4.jpeg}
+\begin{minipage}[c]{0.7\textwidth}
+\centering
+\includegraphics[width=0.3\textwidth]{Bragg-m=1.jpeg}
+\includegraphics[width=0.3\textwidth]{Bragg-m=2.jpeg}
+\includegraphics[width=0.3\textwidth]{Bragg-m=4.jpeg}
 \end{minipage}
 
+\vspace{0.5cm}
 
-% ---- FILA 3: FABRY-PÉROT ----
-\begin{minipage}[t]{0.22\linewidth}
-    Your descriptive text goes here. This column acts as the legend or introduction for the three images to the right.
+% -------- FILA 3 --------
+\noindent
+\begin{minipage}[c]{0.25\textwidth}
+\textbf{Resonancias Fabry-Pérot.}
+Modos resonantes para $m=3$, $5$ y $8$. 
+
+Parámetros:
+
+$n_{inc}=1$, $n_H=3.5=n_{cav}$, $n_L=2.9$, $n_{sub}=1.5$, $\theta_i=0^\circ$ y $L=\frac{\lambda_0}{2n_{cav}}$.
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Fabry_Perot-m=1.jpeg}
+\begin{minipage}[c]{0.7\textwidth}
+\centering
+\includegraphics[width=0.3\textwidth]{Fabry_Perot-m=1.jpeg}
+\includegraphics[width=0.3\textwidth]{Fabry_Perot-m=2.jpeg}
+\includegraphics[width=0.3\textwidth]{Fabry_Perot-m=4.jpeg}
 \end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Fabry_Perot-m=2.jpeg}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.24\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Fabry_Perot-m=4.jpeg}
-\end{minipage}
+
 
 }
 
@@ -200,10 +195,10 @@ de donde se calculan los coeficientes de transmisión y reflexión. La reflectan
 \end{itemize}
 
 \textbf{Cavidades de Fabry-Pérot}
-
+\vspace{-0.75em}
 \begin{itemize}
 \item Incluso con pocos pares de capas se obtiene un notable estrechamiento espectral alrededor de las longitudes de resonancia.
-\item Las resonancias de orden superior se concentran hacia menores $\lambda$ según \eqref{lr}; ajustando $L$ puede imponerse $\lambda_0=\lambda_1$. El aumento del número de capas introduce resonancias secundarias, ya que cada par puede comportarse como una cavidad débilmente acoplada.
+\item \vspace{-0.75em} Las resonancias de orden superior se concentran hacia menores $\lambda$ según \eqref{lr}; ajustando $L$ puede imponerse $\lambda_0=\lambda_1$. El aumento del número de capas introduce resonancias secundarias, ya que cada par puede comportarse como una cavidad débilmente acoplada.
 \end{itemize}
 }
 
@@ -238,6 +233,8 @@ de donde se calculan los coeficientes de transmisión y reflexión. La reflectan
     \item El método de matrices de transferencia es una muy útil para modelizar sistemas multicapa y diseñar dispositivos fotónicos.
     \item Experimentalmente se observarían pérdidas por absorción y un comportamiento menos idealizado.
 \end{itemize}
+
+\vspace{-1em}
 }
 
 \column{0.5}
@@ -256,7 +253,7 @@ de donde se calculan los coeficientes de transmisión y reflexión. La reflectan
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
 
-\qrcode[hyperlink, height=2in]{https://github.com/LucasBerredo/MultInterference}
+\qrcode[hyperlink, height=3.5in]{https://github.com/LucasBerredo/MultInterference}
 
 
 \end{minipage}}
