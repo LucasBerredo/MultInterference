@@ -1,11 +1,12 @@
 \documentclass[20pt, a0paper, portrait]{tikzposter}
 \title{\textbf{Interferencias en Multicapas: Espejos de Bragg y Cavidades Resonantes}}
-\author{Berredo, L. \hspace{1em} Tresguerres, J., \hspace{1em} Vázquez, M., \hspace{1em} Villar, O.}
+\author{Berredo, L. \hspace{1em} Tresguerres, J. \hspace{1em} Vázquez, M. \hspace{1em} Villar, O.}
 \institute{Universidad de Oviedo}
 
 \usetheme{Basic}
 \usecolorstyle{Spain}
 \usetitlestyle{Empty}
+
 
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
@@ -13,8 +14,11 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{standalone}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, angles, quotes, decorations.markings}
 
 
 \hypersetup{colorlinks=true, linkcolor=black, urlcolor=black}
@@ -25,18 +29,20 @@
 
 \block{Abstract}{
 
-\textbf{English.} In this poster, the authors discuss how to calculate interference on multilayer materials via mathematical formulation (transfer matrix method) and numerical computation (numerical methods and programming). Applications are studied, via Bragg's mirror and Fabry-Pérot resonant cavities. Finally, physical conclusions are derived and further works are mentioned.
+\textbf{English.} Interferential phenomena in multilayer systems have various physical and technological applications. This poster studies both via the lens of Bragg mirrors and Fabry-Pérot resonant cavities. Applying numerical analysis, we study the behaviour of these systems by varying parameters such as the number of layers or the angle of incidence, using the matrix formalism.
 
 \vspace{1em}
 
-\textbf{Español.} En este póster, se discute cómo calcular interferencia en materiales multicapa mediante una formulación matemática (método matrices de transferencia) y cálculo numérico (métodos numéricos y programación). Se estudian aplicaciones mediante el espejo de Bragg y las cavidades resonantes de tipo Fabry-Pérot. Finalmente, se extraen conclusiones físicas y se mencionan avenidas futuras.
+\textbf{Español.} Los fenómenos interferenciales en sistemas multicapa tienen multitud de aplicaciones físicas y tecnológicas. Este póster estudia ambas bajo microscopio mediante los espejos de Bragg y cavidades resonantes de Fabry-Pérot. Aplicando análisis numérico, se estudia el comportamiento de estos sistemas variando parámetros como el número de capas ó el ángulo de incidencia, usando el formalismo matricial.
 }
 
 
 \begin{columns}
-\column{0.5}
+\column{0.63}
 
 \block{Introducción}{
+
+\begin{minipage}{0.55\linewidth}
 \textbf{Espejos de Bragg.}
 
 Un espejo de Bragg es un sistema multicapa diseñado para maximizar la reflectancia en un intervalo de longitudes de onda centrado en $\lambda_0$. Consta de $m$ pares de capas de índices $n_H>n_L$, con espesores $d_H=\frac{\lambda_0}{4n_H}$ y $d_L=\frac{\lambda_0}{4n_L}$. A nivel teórico, parar incidencia normal se tiene: 
@@ -47,6 +53,17 @@ Un espejo de Bragg es un sistema multicapa diseñado para maximizar la reflectan
 Para $m\geq10$, $R_{\max}\approx1$. Algunos valores típicos de índices de refracción son: $n_H=2.3$ (TiO$_2$), $n_L=1.45$ (SiO$_2$) en el visible y $n_H=3.5$ (GaAs), $n_L=2.9$ (AlAs) en el infrarrojo. Las aplicaciones van desde el diseño de cables de fibra óptica hasta espejos de alta reflectividad en interferómetros y sensores ópticos. 
 \vspace{1em}
 
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \centering
+    \resizebox{\linewidth}{!}{
+        \input{bragg.tex}
+    }
+    \caption{Esquema de interferencia en multicapas.}
+    
+\end{minipage}
+\vspace{2em}
 \textbf{Cavidades resonantes de Fabry-Pérot.}
 
 Dos espejos de Bragg idénticos enfrentados entre sí forman una cavidad resonante tipo Fabry–Pérot. La luz dentro de la cavidad en resonancia se refuerza por interferencia constructiva dando lugar a bandas de longitudes estrechas. La condición de resonancia a incidencia normal es:
@@ -54,10 +71,11 @@ Dos espejos de Bragg idénticos enfrentados entre sí forman una cavidad resonan
     \lambda_q=\frac{2n_{cav}L}{q}, \quad q\in\mathbb{N}
 \end{equation}
 Aplicado a análisis de espectros con gran precisión o fabricación de láseres de emisión controlada.
+\vspace{1em}
 }
 
 
-\column{0.5}
+\column{0.37}
 \block{Metodología}{
 \textbf{Método de las matrices de transferencia.}
 
@@ -123,6 +141,7 @@ de donde se calculan los coeficientes de transmisión y reflexión. La reflectan
 \begin{minipage}[c]{0.25\textwidth}
 
 \textbf{Influencia del ángulo de incidencia.}
+
 Gráficas del Espejo de Bragg para $\theta_i=0^\circ$, $30^\circ$ y $60^\circ$. 
 
 Parámetros:
@@ -142,7 +161,8 @@ $n_{inc}=1$, $n_H=2.3$, $n_L=1.45$; $n_{sub}=1.45$ y $m=8$.
 % -------- FILA 2 --------
 \noindent
 \begin{minipage}[c]{0.25\textwidth}
-\textbf{Variación del número de capas $m$.}
+\textbf{Variación del número de capas.}
+
 Comparación para $m=3$, $5$ y $8$. 
 
 Parámetros:
@@ -163,6 +183,7 @@ $n_{inc}=1$, $n_H=2.3$, $n_L=1.45=n_{sub}$ y $\theta_i=0^\circ$.
 \noindent
 \begin{minipage}[c]{0.25\textwidth}
 \textbf{Resonancias Fabry-Pérot.}
+
 Modos resonantes para $m=3$, $5$ y $8$. 
 
 Parámetros:
@@ -182,9 +203,6 @@ $n_{inc}=1$, $n_H=3.5=n_{cav}$, $n_L=2.9$, $n_{sub}=1.5$, $\theta_i=0^\circ$ y $
 
 
 
-\begin{columns}
-\column{0.5}
-
 \block{Discusión}{
 
 \textbf{Espejos de Bragg}
@@ -193,34 +211,15 @@ $n_{inc}=1$, $n_H=3.5=n_{cav}$, $n_L=2.9$, $n_{sub}=1.5$, $\theta_i=0^\circ$ y $
 \item Al aumentar $\theta_i$ disminuye la componente normal de $k_z$, reduciendo la fase acumulada en cada periodo. Para satisfacer la condición de interferencia constructiva el sistema requiere una $\lambda$ menor, produciéndose un desplazamiento al azul.
 \item Al incrementar el número de pares $m$, la reflectancia máxima $R$ aumenta rápidamente y el ancho espectral de la banda $\Delta\lambda$ se amplía. Adopta una forma rectangular en torno al máximo.
 \end{itemize}
-
+\vspace{0.5em}
 \textbf{Cavidades de Fabry-Pérot}
-\vspace{-0.75em}
+\vspace{-1em}
 \begin{itemize}
 \item Incluso con pocos pares de capas se obtiene un notable estrechamiento espectral alrededor de las longitudes de resonancia.
-\item \vspace{-0.75em} Las resonancias de orden superior se concentran hacia menores $\lambda$ según \eqref{lr}; ajustando $L$ puede imponerse $\lambda_0=\lambda_1$. El aumento del número de capas introduce resonancias secundarias, ya que cada par puede comportarse como una cavidad débilmente acoplada.
+\item Las resonancias de orden superior se concentran hacia menores $\lambda$ según \eqref{lr}; ajustando $L$ puede imponerse $\lambda_0=\lambda_1$. El aumento del número de capas introduce resonancias secundarias, ya que cada par puede comportarse como una cavidad débilmente acoplada.
 \end{itemize}
+\vspace{-1em}
 }
-
-\column{0.5}
-
-\block{Bibliografía}{
-\begin{thebibliography}{9}
-        \itemsep=0pt
-        
-        \bibitem{hecht} 
-        E. Hecht, \textit{Optics}, 5th ed. Pearson, 2017, capítulo 9 (Applications of Single and Multilayer Films).
-
-        \bibitem{als-nielsen} 
-        J. Als-Nielsen and D. McMorrow, \textit{Elements of Modern X-ray Physics}, 2nd ed. Wiley, 2011, capítulo 3 (Refraction and Reflection).
-
-        \bibitem{yeh_layered_media}
-        P. Yeh, \textit{Optical Waves in Layered Media}, 2nd ed., Wiley-Interscience, (2005), capítulo 6 (Optics of Periodic Layered Media) sección 3 (Bragg Reflectors) y capítulo 7 (Some Applications of Isotropic Layered Media) sección 1 (Fabry-Perot Interferometers).
-
-        \bibitem{yariv_yeh_photonics}
-        A. Yariv and P. Yeh, \textit{Photonics: Optical Electronics in Modern Communications}, 6th ed., Oxford University Press, (2006), capítulo 4 (Optical Resonators).
-\end{thebibliography}}
-\end{columns}
 
 \begin{columns}
 
@@ -233,32 +232,37 @@ $n_{inc}=1$, $n_H=3.5=n_{cav}$, $n_L=2.9$, $n_{sub}=1.5$, $\theta_i=0^\circ$ y $
     \item El método de matrices de transferencia es una muy útil para modelizar sistemas multicapa y diseñar dispositivos fotónicos.
     \item Experimentalmente se observarían pérdidas por absorción y un comportamiento menos idealizado.
 \end{itemize}
-
 \vspace{-1em}
 }
 
-\column{0.5}
+\column{0.2}
 
 \block{Código abierto}{
-\begin{minipage}{0.65\linewidth}
-    
-\textbf{Disponible en el QR}
+\centering
+\qrcode[hyperlink, height=2.6in]{https://github.com/LucasBerredo/MultInterference}
 
 \begin{itemize}
-    \item{Disponible bajo licencia EUPL}
-    \item{Versiones en Python y MATLAB}
+\item{Licencia EUPL}
+\item{Python y MATLAB}
 \end{itemize}
+\vspace{-1em}
+}
 
+\column{0.3}
 
-\end{minipage}
-\begin{minipage}{0.35\linewidth}
+\block{Bibliografía}{
+\begin{thebibliography}{9}
+        \itemsep=0pt
+        
+        \bibitem{hecht} 
+        E. Hecht, \textit{Optics}, 5th ed. Pearson, 2017, capítulo 9 (Applications of Single and Multilayer Films).
 
-\qrcode[hyperlink, height=3.5in]{https://github.com/LucasBerredo/MultInterference}
-
-
-\end{minipage}}
-
+        \bibitem{als-nielsen} 
+        J. Als-Nielsen and D. McMorrow, \textit{Elements of Modern X-ray Physics}, 2nd ed. Wiley, 2011, capítulo 3 (Refraction and Reflection).
+\end{thebibliography}}
+\vspace{1em}
 \end{columns}
+
 
 
 \end{document}
